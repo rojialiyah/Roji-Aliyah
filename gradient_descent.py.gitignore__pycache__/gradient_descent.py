@@ -15,17 +15,17 @@ def fit_line(X, y, lr, epochs):
   n = len(X)
     losses = []
 #MSE = (1/n) × Σ(actual - predicted)²
-for epoch in range(epochs):
-  y_pred = w * X + b
-  error = y - y_pred
-  mse_loss = np.mean(error**2)
-  losses.append(mse_loss)
+  for epoch in range(epochs):
+    y_pred = w * X + b
+    error = y - y_pred
+    mse_loss = np.mean(error**2)
+    losses.append(mse_loss)
 #gradient of loss with respect to w
-  dw = (2/n) * np.sum(error *x)
+    dw = (2/n) * np.sum(error *X)
 #gradient of loss wrt b
-  db = (2/n) * np.sum(error)
-  w = w - lr * dw
-  b = b - lr * db
+    db = (2/n) * np.sum(error)
+    w = w - lr * dw
+    b = b - lr * db
 
 return losses
 #Task 3: Experiment & Plot the Loss Journey
